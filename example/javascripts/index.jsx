@@ -1,4 +1,5 @@
 import React from 'react';
+/* eslint-disable import/no-extraneous-dependencies */
 import { render } from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
 import App from './components/App';

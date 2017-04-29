@@ -113,6 +113,17 @@ The `SplitterLayout` component supports the following props.
     If this prop is not defined, `SplitterLayout` tries to split the layout with equal sizes.
     (Note: equal size may not apply when there are nested layouts.)
 
+* `onSecondarySizeChange: PropTypes.func`
+
+    Optional callback function which receives one parameter of type number. It
+    is called when the SplitterLayout component is first mounted, and again
+    whenever the user finishes moving the splitter.
+
+    The purpose of this callback is to provide the ability to save a user
+    positioned splitter as part of an applications state. It is then possible to
+    restore the position using the `secondaryInitialSize` property. For those
+    using the flow type library, the signature for the callback is
+    `( secondarySize: number ) => void`.
 
 ## Release History
 

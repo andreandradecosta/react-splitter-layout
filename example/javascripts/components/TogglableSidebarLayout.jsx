@@ -17,7 +17,13 @@ export default class TogglableSidebarLayout extends React.Component {
 
   render() {
     return (
-      <SplitterLayout percentage secondaryInitialSize={25}>
+      <SplitterLayout
+        onSecondarySizeChange={(secondaryPaneSize) => {
+          /* eslint-disable no-console */
+          console.log(`${Date.now()}, secondaryPaneSize: ${secondaryPaneSize}`);
+        }}
+        percentage secondaryInitialSize={25}
+      >
         <div className="my-pane">
           <h2>1st Pane</h2>
           <p>This is the 1st pane, and this is the primary pane by default.</p>
@@ -43,7 +49,7 @@ export default class TogglableSidebarLayout extends React.Component {
               &nbsp;&nbsp;<strong>&lt;div&gt;2nd&lt;/div&gt;</strong>{'\n'}
               &lt;/SplitterLayout&gt;
             </pre>
-            <Lorem title="2nd Pane"/>
+            <Lorem title="2nd Pane" />
           </div>
         }
       </SplitterLayout>

@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import NavLink from './NavLink';
 
-export default function(props) {
+function App(props) {
   return (
     <div>
       <header>
@@ -27,3 +28,9 @@ export default function(props) {
     </div>
   );
 }
+
+App.propTypes = {
+  children: Array.of(PropTypes.element).isRequired
+};
+
+export default App;

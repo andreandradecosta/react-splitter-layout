@@ -4,7 +4,13 @@ import Lorem from './Lorem';
 
 export default function() {
   return (
-    <SplitterLayout vertical>
+    <SplitterLayout
+      onSecondarySizeChange={(secondaryPaneSize) => {
+        /* eslint-disable no-console */
+        console.log(`${Date.now()}, secondaryPaneSize: ${secondaryPaneSize}`);
+      }}
+      vertical
+    >
       <div className="my-pane">
         <h2>1st Pane</h2>
         <p>This is the 1st pane, and this is the primary pane by default.</p>

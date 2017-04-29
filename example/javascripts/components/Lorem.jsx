@@ -114,7 +114,7 @@ function Lorem(props) {
 }
 
 Lorem.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string.isRequired
 };
 
 export default Lorem;

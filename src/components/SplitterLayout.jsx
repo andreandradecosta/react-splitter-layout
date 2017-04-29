@@ -52,7 +52,7 @@ class SplitterLayout extends React.Component {
         top: containerRect.top + ((containerRect.height - splitterRect.height) / 2)
       }, false);
     }
-    this.setState({ secondaryPaneSize });
+    this.setState({ secondaryPaneSize }, this.setStateCallback);
   }
 
   componentWillUnmount() {
@@ -106,6 +106,12 @@ class SplitterLayout extends React.Component {
     return secondaryPaneSize;
   }
 
+  setStateCallback() {
+    if (this.props.onSecondarySizeChange) {
+      this.props.onSecondarySizeChange(this.state.secondaryPaneSize);
+    }
+  }
+
   handleResize() {
     if (this.splitter && !this.props.percentage) {
       const containerRect = this.container.getBoundingClientRect();
@@ -137,7 +143,7 @@ class SplitterLayout extends React.Component {
   }
 
   handleMouseUp() {
-    this.setState({ resizing: false });
+    this.setState({ resizing: false }, this.setStateCallback);
   }
 
   render() {
@@ -196,6 +202,7 @@ SplitterLayout.propTypes = {
   primaryMinSize: PropTypes.number,
   secondaryInitialSize: PropTypes.number,
   secondaryMinSize: PropTypes.number,
+  onSecondarySizeChange: PropTypes.func,
   children: PropTypes.arrayOf(PropTypes.node)
 };
 
@@ -207,6 +214,7 @@ SplitterLayout.defaultProps = {
   primaryMinSize: 0,
   secondaryInitialSize: undefined,
   secondaryMinSize: 0,
+  onSecondarySizeChange: undefined,
   children: []
 };
 
