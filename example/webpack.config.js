@@ -5,20 +5,25 @@ module.exports = {
     './javascripts/index.jsx'
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css']
+    extensions: ['.js', '.jsx', '.css']
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
-      loader: 'babel',
+      use: 'babel-loader',
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
     }]
   },
   plugins: [
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') })
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
   ],
   output: {
     filename: 'bundle.js'

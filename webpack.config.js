@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -5,23 +6,28 @@ module.exports = {
     './index.js'
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css']
+    extensions: ['.js', '.jsx', '.css']
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
-      loader: 'babel',
+      loader: 'babel-loader',
       exclude: /node_modules/
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
     }]
   },
   plugins: [
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') })
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
   ],
   output: {
-    path: 'lib',
+    path: path.join(__dirname, 'lib'),
     filename: 'index.js',
     library: 'react-splitter-layout',
     libraryTarget: 'umd'
