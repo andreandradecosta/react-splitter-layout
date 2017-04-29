@@ -46,7 +46,7 @@ $ npm run coverage
     ```javascript
     import React from 'react';
     import SplitterLayout from 'react-splitter-layout';
-    
+
     class YourComponent extends React.Component {
       render() {
         return (
@@ -57,7 +57,7 @@ $ npm run coverage
         );
       }
     }
- 
+
     export default YourComponent;
     ```
 
@@ -70,46 +70,46 @@ and the only direct children occupies all available space.
 
 The `SplitterLayout` component supports the following props.
 
-* `customClassName: React.PropTypes.string`
+* `customClassName: PropTypes.string`
 
     Custom CSS class name applied to the layout `div`. You can use this to customize layout style.
     Refers to the [original stylesheet](src/stylesheets/index.css) to see what you can customize.
 
-* `vertical: React.PropTypes.bool`
+* `vertical: PropTypes.bool`
 
     Determine whether the layout should be a horizontal split or a vertical split. The default value is `false`.
-    
-* `percentage: React.PropTypes.bool`
+
+* `percentage: PropTypes.bool`
 
     Determine whether the width of each pane should be calculated in percentage or by pixels.
     The default value is `false`, which means width is calculated in pixels.
-    
-* `primaryIndex: React.PropTypes.number`
+
+* `primaryIndex: PropTypes.number`
 
     Index of the *primary pane*. Since `SplitterLayout` supports at most 2 children, only `0` or `1` is allowed.
     The default value is `0`.
-    
+
     A *primary pane* is used to show users primary content, while a *secondary pane* is the other pane.
     When window size changes and `percentage` is set to `false`,
     primary pane's size is flexible and secondary pane's size is kept unchanged.
     However, when the window size is not enough for showing both minimal primary pane and minimal secondary pane,
-    the primary pane's size is served first. 
+    the primary pane's size is served first.
 
-* `primaryMinSize: React.PropTypes.number`
+* `primaryMinSize: PropTypes.number`
 
     Minimal size of primary pane. The default value is 0.
 
     When `percentage` is set to `false`, this value is pixel size (25 means 25px).
     When `percentage` is set to `true`, this value is percentage (25 means 25%).
-    
-* `secondaryMinSize: React.PropTypes.number`
+
+* `secondaryMinSize: PropTypes.number`
 
     Minimal size of secondary pane.
 
-* `secondaryInitialSize: React.PropTypes.number`
+* `secondaryInitialSize: PropTypes.number`
 
     Initial size of secondary pane when page loads.
-    
+
     If this prop is not defined, `SplitterLayout` tries to split the layout with equal sizes.
     (Note: equal size may not apply when there are nested layouts.)
 

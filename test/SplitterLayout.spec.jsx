@@ -1,10 +1,13 @@
+/* eslint-env mocha */
 import jsdomify from 'jsdomify';
-jsdomify.create();
 import expect from 'expect';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import Shallow from 'react-test-renderer/shallow'
+import TestUtils from 'react-dom/test-utils';
 import SplitterLayout from '../src/components/SplitterLayout';
 import Pane from '../src/components/Pane';
+
+jsdomify.create();
 
 function setupSplitterLayout(itemCount, props) {
   props = props || {};
@@ -12,7 +15,7 @@ function setupSplitterLayout(itemCount, props) {
   for (let i = 0; i < itemCount; ++i) {
     children.push(<div key={i}>Child #{i}</div>);
   }
-  const renderer = TestUtils.createRenderer();
+  const renderer = Shallow.createRenderer();
   renderer.render(<SplitterLayout {...props}>{children}</SplitterLayout>);
   const output = renderer.getRenderOutput();
   return { props, output, renderer };

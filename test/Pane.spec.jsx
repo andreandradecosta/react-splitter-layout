@@ -1,11 +1,12 @@
+/* eslint-env mocha */
 import expect from 'expect';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import Shallow from 'react-test-renderer/shallow'
 import Pane from '../src/components/Pane';
 
 function setupPane(content, props) {
   props = props || {};
-  const renderer = TestUtils.createRenderer();
+  const renderer = Shallow.createRenderer();
   renderer.render(<Pane {...props}>{content}</Pane>);
   const output = renderer.getRenderOutput();
   return { props, output, renderer };

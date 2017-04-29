@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Pane from './Pane';
 import '../stylesheets/index.css';
@@ -188,14 +189,14 @@ class SplitterLayout extends React.Component {
 }
 
 SplitterLayout.propTypes = {
-  customClassName: React.PropTypes.string,
-  vertical: React.PropTypes.bool,
-  percentage: React.PropTypes.bool,
-  primaryIndex: React.PropTypes.number,
-  primaryMinSize: React.PropTypes.number,
-  secondaryInitialSize: React.PropTypes.number,
-  secondaryMinSize: React.PropTypes.number,
-  children: React.PropTypes.arrayOf(React.PropTypes.node)
+  customClassName: PropTypes.string,
+  vertical: PropTypes.bool,
+  percentage: PropTypes.bool,
+  primaryIndex: PropTypes.number,
+  primaryMinSize: PropTypes.number,
+  secondaryInitialSize: PropTypes.number,
+  secondaryMinSize: PropTypes.number,
+  children: PropTypes.arrayOf(PropTypes.node)
 };
 
 SplitterLayout.defaultProps = {
