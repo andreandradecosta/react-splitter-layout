@@ -1,36 +1,41 @@
-# react-splitter-layout
+# @scrycollective/react-splitter-layout
 
-[![Build Status](https://travis-ci.org/zesik/react-splitter-layout.svg?branch=master)](https://travis-ci.org/zesik/react-splitter-layout)
-[![Coverage Status](https://coveralls.io/repos/github/zesik/react-splitter-layout/badge.svg?branch=master)](https://coveralls.io/github/zesik/react-splitter-layout?branch=master)
-[![npm version](https://badge.fury.io/js/react-splitter-layout.svg)](https://badge.fury.io/js/react-splitter-layout)
-[![devDependency Status](https://david-dm.org/zesik/react-splitter-layout/dev-status.svg)](https://david-dm.org/zesik/react-splitter-layout#info=devDependencies)
+[![Build Status](https://travis-ci.org/scrycollective/react-splitter-layout.svg?branch=master)](https://travis-ci.org/scrycollective/react-splitter-layout)
+[![npm version](https://badge.fury.io/js/@scrycollective/react-splitter-layout.svg)](https://badge.fury.io/js/@scrycollective/react-splitter-layout)
+[![devDependency Status](https://david-dm.org/scrycollective/react-splitter-layout/dev-status.svg)](https://david-dm.org/scrycollective/react-splitter-layout#info=devDependencies)
 
-A simple split layout for React and modern browsers.
+React-splitter-layout is a simple split layout for React and modern browsers by
+Yang Liu (aka zesik).
 
-[Demo](https://zesik.com/react-splitter-layout/)
+The Scry Collective fork adds one feature, and has a focus on keeping all
+dependencies at the latest versions, at the expense of supporting a wide range
+of React versions.
+
+[Demo](https://scrycollective.github.io/react-splitter-layout/)
 
 ## Dependencies
 
-React-splitter-layout depends on React. See [package.json](package.json) for more details.
+@scrycollective/react-splitter-layout depends on the latest version of React.
+See [package.json](package.json) for more details.
 
 ## Installation
 
 ```sh
-$ npm install --save react-splitter-layout
+$ yarn add @scrycollective/react-splitter-layout
 ```
 
 ## Testing
 
-To run tests, execute `test` command with `npm`.
+To run tests, execute `test` command with `yarn`: .
 
 ```sh
-$ npm test
+$ yarn test
 ```
 
-To run coverage tests, execute `coverage` script with `npm`.
+To run coverage tests, execute `coverage` script with `yarn`.
 
 ```sh
-$ npm run coverage
+$ yarn coverage
 ```
 
 ## Integration
@@ -38,14 +43,14 @@ $ npm run coverage
 1. Add `react-splitter-layout` dependency to your code.
 
     ```sh
-    $ npm install --save react-splitter-layout
+    $ yarn add @scrycollective/react-splitter-layout
     ```
 
 2. Include the library into your code and use it.
 
     ```javascript
-    import React from 'react';
-    import SplitterLayout from 'react-splitter-layout';
+    import React from 'react'
+    import SplitterLayout from '@scrycollective/react-splitter-layout'
 
     class YourComponent extends React.Component {
       render() {
@@ -58,7 +63,7 @@ $ npm run coverage
       }
     }
 
-    export default YourComponent;
+    export default YourComponent
     ```
 
 ## Usage
@@ -127,6 +132,12 @@ The `SplitterLayout` component supports the following props.
 
 ## Release History
 
+* 1.0.0
+  * Drop support for React prior to 15.5.4, upgrade all dependencies to latest.
+      Since this is not a backwards compatible change, that is why the version
+      had to go up a major version.
+  * Add onSecondarySizeChange callback, to allow saving the splitter position in
+    the store.
 * 0.2.1
   * Fix an incorrect layout when nesting a horizontal splitter inside a vertical one,
     and now root element of the splitter is absolutely positioned.
