@@ -9,7 +9,7 @@ import LayoutWithMinimalSize from './components/LayoutWithMinimalSize';
 import PercentageLayout from './components/PercentageLayout';
 import NestedLayout from './components/NestedLayout';
 import TogglableSidebarLayout from './components/TogglableSidebarLayout';
-import '../stylesheets/index.css';
+import './index.css';
 
 function NoMatch() {
   return (
